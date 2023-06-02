@@ -1,21 +1,45 @@
 "use client";
 import Image from "next/image";
 import axios from "axios";
+import xml2js from "xml2js";
+import { useState } from "react";
 
 export default function Home() {
+  const [allImbalances, setAllImbalances] = useState([]);
+  const [latestImbalance, setLatestImbalance] = useState({});
+
   const handleClick = async () => {
     try {
       const dateFrom = "2023-01-01"; // Replace with your desired dateFrom value
       const dateTo = "2023-05-05"; // Replace with your desired dateTo value
-
+  
       const requestBody = {
         dateFrom: dateFrom,
         dateTo: dateTo,
       };
       const response = await axios.post("/api", requestBody);
-
+  
       if (response.status === 200) {
-        console.log(response.data.responseData);
+        const soapResponse = response.data.responseData;
+        
+        // Parse the SOAP response
+        xml2js.parseString(soapResponse, (err, result) => {
+          if (err) {
+            console.error(err);
+          } else {
+            const dataItems = result['soap:Envelope']['soap:Body'][0]['AktualniSystemovaOdchylkaCRResponse'][0]['AktualniSystemovaOdchylkaCRResult'][0]['root'][0]['data'][0]['item'];
+  
+            // Extract the date and value from each item
+            const itemList = dataItems.map(item => ({
+              date: item.$.date,
+              value: item.$.value1
+            }));
+            setAllImbalances(itemList);
+            setLatestImbalance(itemList[itemList.length - 1])
+            console.log(itemList);
+            console.log(itemList[itemList.length - 1])
+          }
+        });
       }
     } catch (error) {
       console.error(error);
@@ -128,6 +152,8 @@ export default function Home() {
           </p>
         </a>
         <button onClick={handleClick}>Send test post request</button>
+        {latestImbalance.date}
+        {latestImbalance.value}
       </div>
     </main>
   );

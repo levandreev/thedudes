@@ -18,8 +18,8 @@ export async function POST(request) {
     <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">\
         <soap12:Body>\
             <AktualniSystemovaOdchylkaCR xmlns="https://www.ceps.cz/CepsData/">\
-                <dateFrom>2023-05-01</dateFrom>\
-                <dateTo>2023-05-05</dateTo>\
+                <dateFrom>2023-06-01</dateFrom>\
+                <dateTo>2023-06-03</dateTo>\
             </AktualniSystemovaOdchylkaCR>\
         </soap12:Body>\
     </soap12:Envelope>';
