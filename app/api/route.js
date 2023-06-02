@@ -25,14 +25,11 @@ export async function GET() {
     );
     let gridResult = null;
     const responseData = response.data;
-    // console.log(responseData);
     if (response.status === 200) {
-      console.log(2);
       // Parse the SOAP response
       xml2js.parseString(responseData, (err, result) => {
         if (err) {
           console.error(err);
-          console.log(3);
           return NextResponse.json({ Error: "Something went wrong" });
         } else {
           const dataItems =
@@ -41,15 +38,13 @@ export async function GET() {
             ][0]["AktualniSystemovaOdchylkaCRResult"][0]["root"][0]["data"][0][
               "item"
             ];
-          console.log(4);
           // Extract the date and value from each item
           const itemList = dataItems.map((item) => ({
             date: item.$.date,
             value: item.$.value1,
           }));
-          console.log(5);
           const lastElem = itemList[itemList.length - 1];
-          gridResult = lastElem > 0 ? 1 : 0;
+          gridResult = parseInt(lastElem.value) > 0 ? 1 : 0;
         }
       });
     }
@@ -87,7 +82,6 @@ export async function POST(request) {
     );
 
     const responseData = response.data;
-    // console.log(responseData);
     return NextResponse.json({ responseData });
   } catch (error) {
     console.error(error);

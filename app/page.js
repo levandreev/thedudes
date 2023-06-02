@@ -18,8 +18,6 @@ export default function Home() {
         dateTo: dateTo,
       };
       const response = await axios.post("/api", requestBody);
-      // const response2 = await axios.get("/api", requestBody);
-      // console.log(response2);
   
       if (response.status === 200) {
         const soapResponse = response.data.responseData;
@@ -38,8 +36,6 @@ export default function Home() {
             }));
             setAllImbalances(itemList);
             setLatestImbalance(itemList[itemList.length - 1])
-            console.log(itemList);
-            console.log(itemList[itemList.length - 1])
           }
         });
       }
