@@ -24,6 +24,7 @@ export async function GET() {
       }
     );
     let gridResult = null;
+    let lastElem = null;
     const responseData = response.data;
     if (response.status === 200) {
       // Parse the SOAP response
@@ -43,12 +44,12 @@ export async function GET() {
             date: item.$.date,
             value: item.$.value1,
           }));
-          const lastElem = itemList[itemList.length - 1];
+          lastElem = itemList[itemList.length - 1];
           gridResult = parseInt(lastElem.value) > 0 ? 1 : 0;
         }
       });
     }
-    return NextResponse.json({ result: gridResult });
+    return NextResponse.json({ result: gridResult , value: lastElem});
 
     // return NextResponse.json({ data });
   } catch (error) {
