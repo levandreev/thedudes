@@ -1,0 +1,108 @@
+main{
+    padding: 0 !important;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.hero{
+    background:linear-gradient(-30deg, rgba(1,1,1,0.79), #010101);
+    width: 98.9vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+}
+
+.hero2{
+    background:linear-gradient(260deg, rgba(1,1,1,0.79), #010101);
+}
+
+.heroText{
+    color: white;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.6);
+    width: 500px;
+}
+
+h1{
+    font-size: 62px;
+    font-weight: bold;
+    color: white;
+}
+
+button{
+    padding: 3px 8px;
+    color: black;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.buttonContainer{
+    margin-top: 45px;
+    display: flex;
+    padding: 0 30px 0 0px;
+    justify-content: space-between;
+    & > button{
+        width: 216px;
+    }
+}
+
+.secondaryButton{
+    border:0.1px white solid;
+    color: white;
+    &:hover{
+        background-color: white;
+        color: black;
+    }
+    transition: all 0.2s;
+}
+
+.primaryButton{
+    background-color: hsl(115, 79%, 28%);
+    color: white;
+    transition: all 0.2s;
+    &:hover{
+        background-color: hsl(115, 79%, 48%);
+    }
+}
+
+.imbalanceShowcase{
+    background-color: #858585;
+    width: 542px;
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 46px;
+    line-height: 75px;
+    font-weight: bold;
+}
+
+#currentImbalance{
+    color: red;
+    &.green{
+        color: #43EF18;
+    }
+}
+
+.heroText2{
+    margin-top: 85px;
+}
+
+.buttonContainer2{
+    justify-content: end;
+}
+
+.moreImage{
+    width: 700px;
+    position: relative;
+}
+
+img{
+    border-radius: 5px;
+    z-index: 100;
+    -webkit-box-shadow: -6px 6px 8px 0px rgba(138,130,138,1);
+    -moz-box-shadow: -6px 6px 8px 0px rgba(138,130,138,1);
+    box-shadow: -15px 15px 3px 0px rgba(138,130,138,1);
+}

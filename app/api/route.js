@@ -49,7 +49,7 @@ export async function GET() {
         }
       });
     }
-    return NextResponse.json({ result: gridResult , value: lastElem});
+    return NextResponse.json({ result: gridResult, value: lastElem });
 
     // return NextResponse.json({ data });
   } catch (error) {
@@ -57,10 +57,7 @@ export async function GET() {
   }
 }
 
-export async function POST(request) {
-  const body = await request.json();
-  console.log(body);
-
+export async function POST() {
   const soapRequest =
     '<?xml version="1.0" encoding="utf-8"?>\
     <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">\
