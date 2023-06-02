@@ -18,6 +18,8 @@ export default function Home() {
         dateTo: dateTo,
       };
       const response = await axios.post("/api", requestBody);
+      // const response2 = await axios.get("/api", requestBody);
+      // console.log(response2);
   
       if (response.status === 200) {
         const soapResponse = response.data.responseData;
