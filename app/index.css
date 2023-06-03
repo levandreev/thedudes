@@ -12,6 +12,33 @@ main{
     justify-content: space-between;
     align-items: center;
     padding: 0 100px;
+    min-height: 600px;
+}
+
+@media screen and (max-width: 992px) {
+    .hero{
+        flex-direction: column-reverse;
+        padding: 50px 100px;
+        justify-content: center;
+    }
+
+    img{
+        width: 500px;
+    }
+
+    .moreImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero3{
+        flex-direction: column;
+    }
+
+    .hero2{
+        padding: 100px 100px;
+    }
 }
 
 .hero2{
@@ -61,7 +88,7 @@ button{
 }
 
 .primaryButton{
-    background-color: hsl(115, 79%, 28%);
+    border: solid 1px hsl(115, 79%, 48%);
     color: white;
     transition: all 0.2s;
     &:hover{
@@ -105,4 +132,12 @@ img{
     -webkit-box-shadow: -6px 6px 8px 0px rgba(138,130,138,1);
     -moz-box-shadow: -6px 6px 8px 0px rgba(138,130,138,1);
     box-shadow: -15px 15px 3px 0px rgba(138,130,138,1);
+}
+
+.heroText3{
+    color: white;
+}
+
+.more3Img{
+    box-shadow: 15px 15px 3px 0px rgba(138,130,138,1);
 }
