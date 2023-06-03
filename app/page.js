@@ -88,7 +88,7 @@ export default function Home() {
         <div className="graph">
           <div className="graphContainer"></div>
           <div className="moreImage">
-            <img id="infoSection" src="img2.png"></img>
+            <img id="infoSection" src="graphImage.png"></img>
           </div>
         </div>
         <div className="heroText heroText2">
