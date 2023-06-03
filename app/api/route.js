@@ -77,8 +77,8 @@ export async function GET() {
   } catch (error) {
     try {
       const now = new Date();
-      const formattedDateNow = now.toISOString().slice(0, 19) + "+02:00"; // Add the desired timezone offset
-
+      // const formattedDateNow = now.toISOString().slice(0, 19) + "+02:00"; // Add the desired timezone offset
+      const formattedDateNow = "2027";
       const fiveHoursAgo = new Date(now.getTime() - 5 * 60 * 60 * 1000);
 
       // Convert to the desired format
