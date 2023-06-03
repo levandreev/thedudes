@@ -31,6 +31,14 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (latestImbalance > 0) {
+      document.getElementById("currentImbalance").classList.add("green");
+    } else {
+      document.getElementById("currentImbalance").classList.remove("green");
+    }
+  }, [latestImbalance]);
+
   return (
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
