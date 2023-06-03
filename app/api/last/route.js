@@ -22,8 +22,8 @@ export async function GET() {
       .padStart(2, "0");
 
   const fiveHoursAgoFormatted = formattedDate + timezoneOffsetFormatted;
-  console.log(fiveHoursAgoFormatted);
-  console.log(formattedDateNow);
+  //   console.log(fiveHoursAgoFormatted);
+  //   console.log(formattedDateNow);
   const soapRequest = `<?xml version="1.0" encoding="utf-8"?>\
       <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">\
           <soap12:Body>\
@@ -57,7 +57,14 @@ export async function GET() {
           ];
         // Extract the date and value from each item
         itemList = dataItems.map((item) => ({
-          date: item.$.date,
+          date: new Date(item.$.date).toLocaleString("en-GB", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          }),
           value: item.$.value1,
         }));
       });
