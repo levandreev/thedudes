@@ -15,7 +15,7 @@ export async function GET() {
     </soap12:Envelope>';
   try {
     const response = await axios.post(
-      "https://vip-test-service-00-azapp.azurewebsites.net/_layouts/CepsData.asmx",
+      "https://www.ceps.cz/_layouts/CepsData.asmx",
       soapRequest,
       {
         headers: {
@@ -70,7 +70,7 @@ export async function POST() {
     </soap12:Envelope>';
   try {
     const response = await axios.post(
-      "https://vip-test-service-00-azapp.azurewebsites.net/_layouts/CepsData.asmx",
+      "https://www.ceps.cz/_layouts/CepsData.asmx",
       soapRequest,
       {
         headers: {

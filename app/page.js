@@ -125,6 +125,33 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <div className="hero hero2 hero3">
+        <div className="heroText heroText2 heroText3">
+          <h1>How To Follow The Grid?</h1>
+          With the <b>I❤️Grid</b> device you can always follow if the imbalance
+          is positive or negative.
+          <div className="buttonContainer buttonContainer2">
+            <button
+              className="secondaryButton"
+              onClick={() => {
+                window.open(
+                  "https://www.lawinsider.com/dictionary/energy-imbalance#:~:text=Energy%20Imbalance%20means%20any%20difference,congestion%20or%20other%20scheduling%20fees.",
+                  "_blank"
+                );
+              }}
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+        <div className="graph">
+          <div className="graphContainer"></div>
+          <div className="moreImage">
+            <img id="infoSection" src="img2.png"></img>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -36,7 +36,7 @@ export async function GET() {
   try {
     let itemList = [];
     const response = await axios.post(
-      "https://vip-test-service-00-azapp.azurewebsites.net/_layouts/CepsData.asmx",
+      "https://www.ceps.cz/_layouts/CepsData.asmx",
       soapRequest,
       {
         headers: {
