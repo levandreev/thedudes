@@ -147,8 +147,8 @@ export default function Home() {
         </div>
         <div className="graph">
           <div className="graphContainer"></div>
-          <div className="moreImage">
-            <img id="infoSection" src="img2.png"></img>
+          <div className="moreImage more3">
+            <img className="more3Img" src="img2.png"></img>
           </div>
         </div>
       </div>
