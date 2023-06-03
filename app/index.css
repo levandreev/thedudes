@@ -98,12 +98,16 @@ button{
 
 .imbalanceShowcase{
     background-color: #858585;
-    width: 542px;
+    width: 600px;
     border-radius: 5px;
     padding: 3px 8px;
     font-size: 46px;
     line-height: 75px;
     font-weight: bold;
+}
+
+.graphContainer{
+    border-radius: 5px;
 }
 
 #currentImbalance{
@@ -124,10 +128,11 @@ button{
 .moreImage{
     width: 700px;
     position: relative;
+
 }
 
 img{
-    border-radius: 5px;
+    border-radius: 15px;
     z-index: 100;
     -webkit-box-shadow: -6px 6px 8px 0px rgba(138,130,138,1);
     -moz-box-shadow: -6px 6px 8px 0px rgba(138,130,138,1);

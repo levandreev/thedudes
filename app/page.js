@@ -3,6 +3,7 @@ import axios from "axios";
 import xml2js from "xml2js";
 import { useEffect, useState } from "react";
 import "./index.css";
+import ElectricityImbalanceChart from "./dashboard/page";
 
 export default function Home() {
   const [allImbalances, setAllImbalances] = useState([]);
@@ -78,16 +79,35 @@ export default function Home() {
               <button
                 className="secondaryButton"
                 onClick={() => {
-                  location.href = location.href + "#infoSection";
+                  location.href =
+                    location.protocol +
+                    "//" +
+                    location.host +
+                    location.pathname +
+                    "#infoSection";
                 }}
               >
                 Learn More
               </button>
-              <button className="primaryButton">Follow The Grid</button>
+              <button
+                className="primaryButton"
+                onClick={() => {
+                  location.href =
+                    location.protocol +
+                    "//" +
+                    location.host +
+                    location.pathname +
+                    "#followGridSection";
+                }}
+              >
+                Follow The Grid
+              </button>
             </div>
           </div>
           <div className="graph">
-            <div className="graphContainer"></div>
+            <div className="graphContainer">
+              <ElectricityImbalanceChart />
+            </div>
             <div className="imbalanceShowcase">
               Current Imbalance:
               <span id="currentImbalance"> {latestImbalance}</span>
@@ -128,7 +148,7 @@ export default function Home() {
 
       <div className="hero hero2 hero3">
         <div className="heroText heroText2 heroText3">
-          <h1>How To Follow The Grid?</h1>
+          <h1 id="followGridSection">How To Follow The Grid?</h1>
           With the <b>I❤️Grid</b> device you can always follow if the imbalance
           is positive or negative.
           <div className="buttonContainer buttonContainer2">
@@ -148,7 +168,7 @@ export default function Home() {
         <div className="graph">
           <div className="graphContainer"></div>
           <div className="moreImage more3">
-            <img className="more3Img" src="img2.png"></img>
+            <img className="more3Img" src="product.png"></img>
           </div>
         </div>
       </div>

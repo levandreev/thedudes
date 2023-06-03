@@ -36,8 +36,8 @@ const ElectricityImbalanceChart = () => {
 
   return (
     <Chart
-      width={"90%"}
-      height={"600px"}
+      width={"600px"}
+      height={"450px"}
       chartType="LineChart"
       loader={<div>Loading Chart</div>}
       data={chartData}
