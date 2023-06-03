@@ -40,7 +40,7 @@ export async function GET() {
         headers: {
           "Content-Type": "application/soap+xml; charset=utf-8",
         },
-        timeout: 5000,
+        timeout: 3000,
       }
     );
     const responseData = response.data;
