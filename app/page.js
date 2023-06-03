@@ -6,63 +6,31 @@ import "./index.css";
 import ElectricityImbalanceChart from "./dashboard/page";
 
 export default function Home() {
-  const [allImbalances, setAllImbalances] = useState([]);
   const [latestImbalance, setLatestImbalance] = useState(null);
 
-  useEffect(() => {
-    if (!latestImbalance) {
-      handleClick();
-      intervalValue();
-    }
-    if (latestImbalance && latestImbalance > 0) {
-      document.getElementById("currentImbalance").classList.add("green");
-    } else if (latestImbalance) {
-      document.getElementById("currentImbalance").classList.remove("green");
-    }
-  }, [latestImbalance]);
+  const getData = async () => {
+    // Fetch initially
+    const response = await axios.get("/api/last");
+    debugger;
+    const data = response.data;
+    console.log(data);
+    // set data
 
-  function intervalValue() {
-    console.log("called");
-    setInterval(async function () {
-      await handleClick();
-      intervalValue();
-    }, 15000);
-  }
+    // console.log(response.data.responseData)
 
-  const handleClick = async () => {
-    try {
-      const response = await axios.post("/api");
-
-      if (response.status === 200) {
-        const soapResponse = response.data.responseData;
-
-        // Parse the SOAP response
-        xml2js.parseString(soapResponse, (err, result) => {
-          if (err) {
-            console.error(err);
-          } else {
-            const dataItems =
-              result["soap:Envelope"]["soap:Body"][0][
-                "AktualniSystemovaOdchylkaCRResponse"
-              ][0]["AktualniSystemovaOdchylkaCRResult"][0]["root"][0][
-                "data"
-              ][0]["item"];
-
-            // Extract the date and value from each item
-            const itemList = dataItems.map((item) => ({
-              date: item.$.date,
-              value: item.$.value1,
-            }));
-            console.log(parseInt(itemList[itemList.length - 1].value));
-            setAllImbalances(itemList);
-            setLatestImbalance(parseInt(itemList[itemList.length - 1].value));
-          }
-        });
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    setLatestImbalance(parseInt(response.data[response.data.length - 1].value));
   };
+
+  useEffect(() => {
+    // Fetch initially
+    getData();
+
+    const interval = setInterval(getData, 10000); // Fetch every 10 seconds
+
+    // Clean up the interval when the component is unmounted
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
